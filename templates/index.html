@@ -1,142 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/style.css">
-    <link rel="stylesheet" href="/static/css/reset.css">
-    <title>Химия в почве и воде</title>
-</head>
-<body>
-    <!-- <description>Здесь дальше будет пушка!</description> -->
-    <header>
-       
-            <nav class="header__nav">
-                <ul>
-                    <li><a href="#main">О проекте</a></li>
-                    <li><a href="#footer">Контакты</a></li>
-                    <li><a href="#">Исследования</a></li>
-                </ul>
-            </nav>  
-        
-    </header>
+{% extends 'base.html' %}
 
-    <main id="main" class="main">
-        <section class="welcome">
-            <div class="container">
+{% block title %}Химия в воде и почве{% endblock %}
+{% block content %}
+<section class="about common_section">
+    <div class="container">
+        <div class="title-wraper">
+            <h3 class="title">О нас</h3>
+            <p class="description">Здесь дальше будет пушка!</p>
+        </div>
+        <div class="cards_wrapper">
+            <div class="card">
+                <img src="/static/img/capture2.png" alt="svg">
+                <h4>Lorem ipsum dolor sit amet</h4>
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+            </div>
+                <div class="card">
+                    <img src="/static/img/capture.svg" alt="png">
+                    <h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+                </div>
+                <div class="card">
+                    <img src="/static/img/capture3.png" alt="png">
+                    <h4>Lorem ipsum dolor sit amet</h4>
+                    <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="tab__section common_section">
+    <div class="title-wraper">
+        <h3 class="title">Lorem ipsum dolor sit amet</h3>
+        <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula</p>
             
+    </div>
+    <div class="tabs">
+        <div class="tabs__nav">
+            <button class="active" type="button">Tab number 1</button>
+            <button type="button">Tab number 2</button>
+            <button type="button">Tab number 3</button>
+        </div>
+        <div class="tabs_item">
+            <img src="/static/img/1.jpg" alt="proekt" >
+            <div class="tabs_desc">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
             </div>
-        </section>
-    
-        <section class="about common_section">
-            <div class="container">
-                <div class="title-wraper">
-                    <h3 class="title">О нас</h3>
-                    <p class="description">Здесь дальше будет пушка!</p>
-                </div>
-                <div class="cards_wrapper">
-                    <div class="card">
-                        <img src="/static/img/capture2.png" alt="svg">
-                        <h4>Lorem ipsum dolor sit amet</h4>
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                    </div>
-                        <div class="card">
-                            <img src="/static/img/capture.svg" alt="png">
-                            <h4>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                        </div>
-                        <div class="card">
-                            <img src="/static/img/capture3.png" alt="png">
-                            <h4>Lorem ipsum dolor sit amet</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                    </div>
-                </div>
+        </div>      
+    </div>
+    <div class="tabs">
+        <div class="tabs_item">
+            <img src="/static/img/2.jpg" alt="proekt" >
+            <div class="tabs_desc">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,\
+                     sem. Nulla consequat massa quis enim.</p>
             </div>
-        </section>
-        <section class="tab__section common_section">
-            <div class="title-wraper">
-                <h3 class="title">Lorem ipsum dolor sit amet</h3>
-                <p class="description">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula</p>
-                    
+        </div>      
+    </div>
+    <div class="tabs">
+        <div class="tabs_item">
+            <img src="/static/img/3.jpg" alt="proekt" >
+            <div class="tabs_desc">
+                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, \
+                    pretium quis, sem. Nulla consequat massa quis enim.</p>
             </div>
-            <div class="tabs">
-                <div class="tabs__nav">
-                    <button class="active" type="button">Tab number 1</button>
-                    <button type="button">Tab number 2</button>
-                    <button type="button">Tab number 3</button>
-                </div>
-                <div class="tabs_item">
-                    <img src="/static/img/1.jpg" alt="proekt" >
-                    <div class="tabs_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.</p>
-                    </div>
-                </div>      
-            </div>
-            <div class="tabs">
-                <div class="tabs_item">
-                    <img src="/static/img/2.jpg" alt="proekt" >
-                    <div class="tabs_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis,\
-                             sem. Nulla consequat massa quis enim.</p>
-                    </div>
-                </div>      
-            </div>
-            <div class="tabs">
-                <div class="tabs_item">
-                    <img src="/static/img/3.jpg" alt="proekt" >
-                    <div class="tabs_desc">
-                        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, \
-                            pretium quis, sem. Nulla consequat massa quis enim.</p>
-                    </div>
-                </div>      
-            </div>
-        </section>
-    </main>   
-        <footer id="footer" class="footer">
-            <div class="footer_desc">
-             <div class="container footer__desk-container">
-                 <div class="footer__about">
-                     <h4>О нас</h4>
-                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, 
-                        pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
-                 </div>
-                 <div class="foooter__links">
-                     <h4>Источники</h4>
-                     <ul>
-                         <li><a href="#">Thelastosus_oficcial.ru</a></li>
-                         <li><a href="#">Hunter_hunterx.com</a></li>
-                         <li><a href="#">TeenNormal%high.com</a></li>
-                         <li><a href="#">Fightskills__jogo.ru</a></li>
-                     </ul>
-                 </div>
-                 <div class="footer__social">
-                     <h4>Наши соц.сети</h4>
-                     <ul>
-                         <li>
-                             <img src="/static/img/telegram-logo-24.png" alt="facebook">
-                             <a href="#!">Телеграмм</a>
-                         </li>
-                         <li>
-                             <img src="/static/img/vk-logo-24.png" alt="google">
-                             <a href="#!">ВК</a>
-                         </li>
-                         <li>
-                             <img src="/static/img/school-solid-24.png" alt="pint">
-                             <a href="#!">Сайт школы</a>
-                         </li>
-                     </ul>
-                 </div>
-             </div>
-            </div> 
-            <div class="footer_copy">
-             <div class="container">
-                 <p>Copyright ABT Inc. Made in Webflow</p>
-             </div>
-            </div>
-         </footer>
-</body>
-</html> 
-
+        </div>      
+    </div>
+</section>
+{% endblock %}
 
 
 

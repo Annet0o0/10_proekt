@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <nav class="header__nav">
+            <ul>
+                <li><a href="/">О проекте</a></li>
+                <li><a href="#footer">Контакты</a></li>
+                <li><a href="/data">Исследования</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="welcome">
+        <div class="container"></div>
+    </section>
+
+    <main id="main" class="main">
+    {% block content %}{% endblock %}
+    </main>
+    
+    <footer id="footer" class="footer">
+            <div class="footer_desc">
+             <div class="container footer__desk-container">
+                 <div class="footer__about">
+                     <h4>О нас</h4>
+                     <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, 
+                        pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. </p>
+                 </div>
+                 <div class="foooter__links">
+                     <h4>Источники</h4>
+                     <ul>
+                         <li><a href="#">Thelastosus_oficcial.ru</a></li>
+                         <li><a href="#">Hunter_hunterx.com</a></li>
+                         <li><a href="#">TeenNormal%high.com</a></li>
+                         <li><a href="#">Fightskills__jogo.ru</a></li>
+                     </ul>
+                 </div>
+                 <div class="footer__social">
+                     <h4>Наши соц.сети</h4>
+                     <ul>
+                         <li>
+                             <img src="/static/img/telegram-logo-24.png" alt="facebook">
+                             <a href="#!">Телеграмм</a>
+                         </li>
+                         <li>
+                             <img src="/static/img/vk-logo-24.png" alt="google">
+                             <a href="#!">ВК</a>
+                         </li>
+                         <li>
+                             <img src="/static/img/school-solid-24.png" alt="pint">
+                             <a href="#!">Сайт школы</a>
+                         </li>
+                     </ul>
+                 </div>
+             </div>
+            </div> 
+            <div class="footer_copy">
+             <div class="container">
+                 <p>Copyright ABT Inc. Made in Webflow</p>
+             </div>
+            </div>
+         </footer>
+</body>
+</html>
