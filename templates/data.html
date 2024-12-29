@@ -7,5 +7,43 @@
         <h3 class="title">Данные</h3>
         <p class="description">Здесь дальше будет пушка!</p>
     </div>
+
+    <table>
+        <thread>
+            <tr>
+                <th rowspan="2">Водоём</th>
+                <th rowspan="2">Общая оценка</th>
+                <th rowspan="2">Кислотность</th>
+                <th rowspan="2">Содержание нефтепродуктов</th>
+                <th colspan="15">Химические элементы</th>
+            </tr>
+            <tr>
+                <th>Хлориды</th>
+                <th>Сульфаты</th>
+                <th>Бромиды</th>
+                <th>Фториды</th>
+                <th>Бор</th>
+                <th>Натрий</th>
+                <th>Магний</th>
+                <th>Кальций</th>
+                <th>Калий</th>
+                <th>Стронций</th>
+                <th>Свинец</th>
+                <th>Цинк</th>
+                <th>Железо</th>
+                <th>Марганец</th>
+                <th>Медь</th>
+            </tr>
+        </thread>
+        <tbody>
+            {% for i in data %}
+            <tr>
+                {% for j in i %}
+                <td>{{ j }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </section>
 {% endblock %}
