@@ -39,5 +39,4 @@ if __name__=="__main__":
         "manganum":0.5,
         "cuprum":0.5
     })
-
     app.run(host=HOST,port=PORT,debug=True)

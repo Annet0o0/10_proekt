@@ -1,42 +1,26 @@
-{% extends 'base.html' %}
-
-{% block title %}Данные о воде Пермского края{% endblock %}
+{% extends "base.html" %}
+{% block title %}Данные о воде Пермского края{% endblock title%}
 {% block content %}
+<link rel="stylesheet" href="/static/css/data.css">
+<body>
 <section class="about">
     <div class="container">
         <h3 class="title">Данные</h3>
         <p class="description">Здесь дальше будет пушка!</p>
     </div>
 
-    <table>
-        <thread>
+    <div class="table_1">
+        <table>
+         <thead>
             <tr>
-                <th rowspan="2">Водоём</th>
-                <th rowspan="2">Общая оценка</th>
-                <th rowspan="2">Кислотность</th>
-                <th rowspan="2">Содержание нефтепродуктов</th>
-                <th colspan="15">Химические элементы</th>
-            </tr>
-            <tr>
-                <th>Хлориды</th>
-                <th>Сульфаты</th>
-                <th>Бромиды</th>
-                <th>Фториды</th>
-                <th>Бор</th>
-                <th>Натрий</th>
-                <th>Магний</th>
-                <th>Кальций</th>
-                <th>Калий</th>
-                <th>Стронций</th>
-                <th>Свинец</th>
-                <th>Цинк</th>
-                <th>Железо</th>
-                <th>Марганец</th>
-                <th>Медь</th>
-            </tr>
-        </thread>
+                <th>Водоём</th>
+                <th>Общая оценка</th>
+                <th>Кислотность</th>
+                <th>Содержание нефтепродуктов</th>
+            </tr> 
+        </thead>
         <tbody>
-            {% for i in data %}
+        {% for i in data %}
             <tr>
                 {% for j in i %}
                 <td>{{ j }}</td>
@@ -45,5 +29,48 @@
             {% endfor %}
         </tbody>
     </table>
+    </div>    
+
+<div class="table_2">
+    <table>
+        <thead>
+           <tr>
+            <th>Химические элементы</th>
+        </tr>
+        </thead>
+        <tbody>
+             <tr>
+                <th>Элемент/ион</th>
+                <th>Химический символ</th>
+                <th>Концентрация в грамм/кг</th>
+            </tr>
+            <tr><td>Хлориды</td></tr>
+            <tr><td>Сульфаты</td></tr>
+            <tr><td>Бромиды</td></tr>
+            <tr><td>Фториды</td></tr>
+            <tr><td>Бор</td></tr>
+            <tr><td>Натрий</td></tr>
+            <tr><td>Магний</td></tr>
+            <tr><td>Кальций</td></tr>
+            <tr><td>Калий</td></tr>
+            <tr><td>Стронций</td></tr>
+            <tr><td>Свинец</td></tr>
+            <tr><td>Цинк</td></tr>
+            <tr><td>Железо</td></tr>
+            <tr><td>Марганец</td></tr>
+            <tr><td>Медь</td></tr>
+
+        </tbody>
+    </table> 
+</div>
 </section>
-{% endblock %}
+</body>
+{% endblock content %}
+
+<!--        {% for i in data %}-->
+<!--            <tr>-->
+<!--                {% for j in i %}-->
+<!--                <td>{{ j }}</td>-->
+<!--                {% endfor %}-->
+<!--            </tr>-->
+<!--            {% endfor %}-->
