@@ -4,6 +4,25 @@ from sqlite4 import SQLite4
 HOST="localhost"
 PORT=443
 
+CHYM=[
+    ("Хлориды","Cl⁻"),
+    ("Бромиды","Br⁻"),
+    ("Фториды","А⁻"),
+    ("Сульфаты","SO₄²⁻"),
+    
+    ("Бор","B"),
+    ("Натрий","Na"),
+    ("Магний","Mg"),
+    ("Кальций","K"),
+    ("Калий","Ca"),
+    ("Стронций","Sr"),
+    ("Свинец","Pl"),
+    ("Цинк","Zn"),
+    ("Железо","Fe"),
+    ("Марганец","Mn"),
+    ("Медь","Cu")
+]
+
 database=SQLite4("database.db")
 app=Flask(__name__)
 
@@ -17,7 +36,7 @@ def data():
 
 if __name__=="__main__":
     database.connect()
-    database.create_table("info",["name","good","ph","petroleum","hloris","sulfis","bromis","ftoris","boris","natris","magnis","calcis","kalis","stroncis","plumbus","zincum","ferrum","manganum","cuprum"])
+    database.create_table("info",["name","good","ph","petroleum","cl","br","f","so","b","na","mg","ca","k","sr","pl","zn","fe","mn","cu"])
 
     #Default info
     if len(database.select("info"))==0: database.insert("info",
@@ -26,21 +45,21 @@ if __name__=="__main__":
         "good":10,
         "ph":1,
         "petroleum":0.5,
-        "hloris":0.5,
-        "sulfis":0.5,
-        "bromis":0.5,
-        "ftoris":0.5,
-        "boris":0.5,
-        "natris":0.5,
-        "magnis":0.5,
-        "calcis":0.5,
-        "kalis":0.5,
-        "stroncis":0.5,
-        "plumbus":0.5,
-        "zincum":0.5,
-        "ferrum":0.5,
-        "manganum":0.5,
-        "cuprum":0.5
+        "cl":0.5,
+        "br":0.5,
+        "f":0.5,
+        "so":0.5,
+        "b":0.5,
+        "na":0.5,
+        "mg":0.5,
+        "ca":0.5,
+        "k":0.5,
+        "sr":0.5,
+        "pl":0.5,
+        "zn":0.5,
+        "fe":0.5,
+        "mn":0.5,
+        "cu":0.5
     })
 
     app.run(host=HOST,port=PORT,debug=True)
