@@ -14,7 +14,7 @@
 
     <table class="table_1">
         <colgroup>
-            <col><col><col><col>
+            <col span="4">
         </colgroup>
         <thead>
             <tr><th colspan="4" class="caption">Общее</th></tr>
@@ -42,7 +42,7 @@
         <thead>
             <tr>
                 <th class="caption" colspan="2">Химические элементы</th>
-                <th class="caption" colspan={{ size }}>Водоёмы</th>
+                <th class="caption" colspan={{ info_size }}>Водоёмы</th>
             </tr>
             <tr>
                 <th>Элемент/ион</th>
@@ -54,21 +54,16 @@
             </tr>
         </thead>
         <tbody>
-            <tr><td>Хлориды</td></tr>
-            <tr><td>Сульфаты</td></tr>
-            <tr><td>Бромиды</td></tr>
-            <tr><td>Фториды</td></tr>
-            <tr><td>Бор</td></tr>
-            <tr><td>Натрий</td></tr>
-            <tr><td>Магний</td></tr>
-            <tr><td>Кальций</td></tr>
-            <tr><td>Калий</td></tr>
-            <tr><td>Стронций</td></tr>
-            <tr><td>Свинец</td></tr>
-            <tr><td>Цинк</td></tr>
-            <tr><td>Железо</td></tr>
-            <tr><td>Марганец</td></tr>
-            <tr><td>Медь</td></tr>
+            {% for i in chym_range %}
+            <tr>
+                <th>{{ chym[i][0] }}</th>
+                <td>{{ chym[i][1] }}</td>
+
+                {% for j in info %}
+                <td>{{ j[i+4] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
         </tbody>
     </table> 
 </section>
