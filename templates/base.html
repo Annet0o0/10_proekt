@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/css/base.css">
     <link rel="stylesheet" href="/static/css/reset.css">
-    <title>{% block title %}{% endblock %}</title>
+    {% block header %}{% endblock %}
 </head>
 <body>
     <header>
         <nav class="header__nav">
             <ul>
-                <li><a href="#main">О проекте</a></li>
+                <li><a href="/">О проекте</a></li>
                 <li><a href="#footer">Контакты</a></li>
                 <li><a href="/data">Исследования</a></li>
             </ul>
@@ -23,7 +23,7 @@
     </section>
 
     <main id="main" class="main">
-    {% block content %}{% endblock content %}
+        {% block content %}{% endblock content %}
     </main>
     
     <footer id="footer" class="footer">

@@ -12,12 +12,15 @@ def index():
     return render_template("index.html")
 @app.route("/data")
 def data():
-    return render_template("data.html",data=database.select("chemy_info"))
+    info=database.select("info")
+    return render_template("data.html",info=info,size=len(info))
 
 if __name__=="__main__":
     database.connect()
-    database.create_table("chemy_info",["name","good","ph","petroleum","hloris","sulfis","bromis","ftoris","boris","natris","magnis","calcis","kalis","stroncis","plumbus","zincum","ferrum","manganum","cuprum"])
-    if len(database.select("chemy_info"))==0: database.insert("chemy_info",
+    database.create_table("info",["name","good","ph","petroleum","hloris","sulfis","bromis","ftoris","boris","natris","magnis","calcis","kalis","stroncis","plumbus","zincum","ferrum","manganum","cuprum"])
+
+    #Default info
+    if len(database.select("info"))==0: database.insert("info",
     {
         "name":"Вишера",
         "good":10,
@@ -39,4 +42,5 @@ if __name__=="__main__":
         "manganum":0.5,
         "cuprum":0.5
     })
+
     app.run(host=HOST,port=PORT,debug=True)
