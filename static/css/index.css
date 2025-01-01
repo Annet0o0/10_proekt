@@ -1,6 +1,9 @@
-.common_section {
+.common_section { 
     text-align: center;
-    padding: 80px 0;
+    padding: 80px 0;  
+}
+.hide{
+    display: none !important;
 }
 /* _______________________ABOUT________________________________ */
 

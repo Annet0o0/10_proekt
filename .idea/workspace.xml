@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f6800a3-8c90-431f-94be-e07d71e36e79" name="Changes" comment="proekt">
-      <change afterPath="$PROJECT_DIR$/static/css/style.css" afterDir="false" />
+    <list default="true" id="7f6800a3-8c90-431f-94be-e07d71e36e79" name="Changes" comment="icon">
+      <change afterPath="$PROJECT_DIR$/static/js/java.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/css/data.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/data.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/static/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/static/css/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -110,12 +112,21 @@
       <option name="project" value="LOCAL" />
       <updated>1735543649586</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="icon">
+      <option name="closed" value="true" />
+      <created>1735713855449</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1735713855449</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="proekt" />
-    <option name="LAST_COMMIT_MESSAGE" value="proekt" />
+    <MESSAGE value="icon" />
+    <option name="LAST_COMMIT_MESSAGE" value="icon" />
   </component>
 </project>
