@@ -1,4 +1,4 @@
-body{
+body {
     overflow: scroll;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     box-sizing: border-box;
@@ -9,11 +9,13 @@ body{
     background-image: url("/static/img/Preview1.png");
     background-size: 1074px 776px;
 }
-.hide{
+
+.hide {
     display: none !important;
 }
+
 /*_____________________HEADER__________________________ */
-header{
+header {
     padding: 20px 0;
     position: absolute;
     background-color: transparent;
@@ -21,7 +23,8 @@ header{
     z-index: 10;
     flex-wrap: wrap;
 }
-header::before{
+
+header::before {
     content: " ";
     width: 100%;
     height: 2px;
@@ -30,77 +33,92 @@ header::before{
     left: 0;
     bottom: 0;
 }
-.header__nav ul{
+
+.header__nav ul {
     display: flex;
-   justify-content: center;
+    justify-content: center;
 }
-.header__nav li + li{
+
+.header__nav li+li {
     margin-left: 40px;
 }
-.header__nav a{
+
+.header__nav a {
     font-size: 16px;
     color: rgb(34, 24, 24);
 }
-.header__nav a:hover{
-    color:white;
+
+.header__nav a:hover {
+    color: white;
     transition: 0.5s;
 }
-.header__nav a:active{
-    color:rgba(53, 91, 53, 0.978);
+
+.header__nav a:active {
+    color: rgba(53, 91, 53, 0.978);
     transition: 0.5s;
 }
 
 /* ______________________MAIN_____________________ */
-.main{
-    justify-content:center;
+.main {
+    justify-content: center;
     background-position: center;
     background-size: cover;
 }
+
 /*______________________WELCOME___________________ */
 
 .welcome {
     min-height: 776px;
     justify-self: center;
-    mask-image: linear-gradient(to right,rgba(0,0,0,0) 0%,rgba(0,0,0,1) 10%, rgba(0,0,0,1) 90%, rgba(0,0,0,0) 100%);
+    mask-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 1) 90%, rgba(0, 0, 0, 0) 100%);
     pointer-events: none;
     user-select: none;
 }
+
 .welcome_heading {
     font-size: 75px;
     display: flex;
     justify-content: center;
 }
+
 /* ___________FOOTER________________________ */
 
-.footer{
+.footer {
     background-color: #fff;
 }
-.footer img{
+
+.footer img {
     width: 30px;
-} 
-.footer__desk{
+}
+
+.footer__desk {
     padding: 35px 0;
 }
-.footer_desc h4{
+
+.footer_desc h4 {
     font-size: 18px;
     line-height: 1;
     letter-spacing: 4px;
     text-transform: uppercase;
-    color:rgba(57, 65, 57, 0.845);
+    color: rgba(57, 65, 57, 0.845);
     margin-bottom: 10px;
 }
-.footer_desc a{
-    color: rgb(39, 38, 36); 
+
+.footer_desc a {
+    color: rgb(39, 38, 36);
     font-size: 13px;
 }
-.footer_desc li{
+
+.footer_desc li {
     height: 30px;
     position: relative;
 }
-.footer_desc li + li{
-   margin-top: 6px;
+
+.footer_desc li+li {
+    margin-top: 6px;
 }
-.footer_desc li::before{
+
+.footer_desc li::before {
     content: "";
     width: 100%;
     height: 1px;
@@ -109,30 +127,36 @@ header::before{
     bottom: 0;
     background-color: #dfe1e3;
 }
-.footer__social li::before{
+
+.footer__social li::before {
     width: calc(100% - 40px);
 }
-.footer__social img{
+
+.footer__social img {
     margin-right: 10px;
 }
-.footer__desk-container{
+
+.footer__desk-container {
     display: flex;
     justify-content: space-evenly;
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 20px 30px;
 }
-.footer__desk-container > *{
+
+.footer__desk-container>* {
     margin-top: 15px;
     width: 30%;
     min-width: 230px;
 }
+
 .footer_copy {
     margin-top: 50px;
     padding: 30px 0;
     background-color: rgb(30, 29, 29);
 }
-.footer_copy p{
+
+.footer_copy p {
     color: #DCEBF7;
     display: flex;
     justify-content: center;
@@ -140,31 +164,35 @@ header::before{
 
 /* _________________MEDIA___________________________________ */
 
-@media(max-width:660px){
-    .welcome{
+@media(max-width:660px) {
+    .welcome {
         background-image: url(/static/img/Preview1.png);
         color: #DCEBF7;
     }
-    .footer__desk{
+
+    .footer__desk {
         display: flex;
         flex-wrap: wrap;
     }
 }
 
-@media (max-width:500px){
-    .header__nav li + li{
+@media (max-width:500px) {
+    .header__nav li+li {
         margin-left: 15px;
     }
-    .welcome__heading{
+
+    .welcome__heading {
         margin-bottom: 150px;
         font-size: 40px;
     }
-    .welcome__links > * + *{
+
+    .welcome__links>*+* {
         margin-top: 20px;
     }
-    .welcome__links a{        
+
+    .welcome__links a {
         display: block;
         margin-right: auto;
-        margin-left: auto; 
+        margin-left: auto;
     }
 }

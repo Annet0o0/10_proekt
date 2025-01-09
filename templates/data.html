@@ -17,24 +17,26 @@
             <col span="4">
         </colgroup>
         <thead>
-            <tr><th colspan="4" class="caption">Общее</th></tr>
+            <tr>
+                <th colspan="4" class="caption">Общее</th>
+            </tr>
             <tr>
                 <th>Водоём</th>
                 <th>Общая оценка</th>
                 <th>Кислотность</th>
                 <th>Содержание нефтепродуктов</th>
-            </tr> 
-       </thead>
-       <tbody>
+            </tr>
+        </thead>
+        <tbody>
             {% for i in info %}
             <tr>
-               {% for j in range(4) %}
-               <td>{{ i[j] }}</td>
-               {% endfor %}
-           </tr>
-           {% endfor %}
-       </tbody>
-    </table>   
+                {% for j in range(4) %}
+                <td>{{ i[j] }}</td>
+                {% endfor %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
     <table class="table_2">
         <colgroup>
             <col span="2">
@@ -47,7 +49,7 @@
             <tr>
                 <th>Элемент/ион</th>
                 <th>Химический символ</th>
-                
+
                 {% for i in info %}
                 <th>{{ i[0] }}</th>
                 {% endfor %}
@@ -65,7 +67,7 @@
             </tr>
             {% endfor %}
         </tbody>
-    </table> 
+    </table>
 </section>
 {% endblock content %}
 
