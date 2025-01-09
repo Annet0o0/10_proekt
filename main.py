@@ -16,7 +16,7 @@ CHYM=[
     ("Кальций","Ca"),
     ("Калий","K"),
     ("Стронций","Sr"),
-    ("Свинец","Pl"),
+    ("Свинец","Pb"),
     ("Цинк","Zn"),
     ("Железо","Fe"),
     ("Марганец","Mn"),
@@ -36,7 +36,7 @@ def data():
 
 if __name__=="__main__":
     database.connect()
-    database.create_table("info",["name","good","ph","petroleum","cl","br","f","so","b","na","mg","ca","k","sr","pl","zn","fe","mn","cu"])
+    database.create_table("info",["name","good","ph","petroleum","cl","br","f","so","b","na","mg","ca","k","sr","pb","zn","fe","mn","cu"])
 
     #Default info
     if len(database.select("info"))==0: 
@@ -55,7 +55,7 @@ if __name__=="__main__":
             "ca":0.5,
             "k":0.5,
             "sr":0.5,
-            "pl":0.5,
+            "pb":0.5,
             "zn":0.5,
             "fe":0.5,
             "mn":0.5,
@@ -76,7 +76,7 @@ if __name__=="__main__":
             "ca":0.5,
             "k":0.5,
             "sr":0.5,
-            "pl":0.5,
+            "pb":0.5,
             "zn":0.5,
             "fe":0.5,
             "mn":0.5,
