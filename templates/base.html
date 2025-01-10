@@ -16,12 +16,12 @@
         <nav class="header__nav">
             <ul>
                 <li><a href="/">О проекте</a></li>
-                <li><a href="#footer">Контакты</a></li>
+                <li><a id="contacts" style="cursor:pointer;">Контакты</a></li>
                 <li><a href="/data">Исследования</a></li>
             </ul>
         </nav>
     </header>
-    <div class="welcome_heading"><img src="/static/img/Preview.png" class="welcome" /></div>
+    <div class="welcome_heading"><img src="/static/img/Preview.png" class="welcome" fetchpriority="low"/></div>
 
     <main id="main" class="main">
         {% block content %}{% endblock content %}
