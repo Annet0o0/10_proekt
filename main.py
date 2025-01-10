@@ -43,27 +43,35 @@ sessions:dict[str,bool]={}
 def editor():
     session=request.cookies.get("session")
 
-    if session:
-        if sessions[session]: return render_template("edit.html")
-        return render_template("edit_auth.html")
-    
-    new_session=token_urlsafe(16)
-    sessions[new_session]=False
-    
-    resp=make_response(render_template("edit_auth.html"))
-    resp.set_cookie("session",new_session)
-    return resp
+    if session and sessions.get(session): return render_template("edit.html")
+    return new_editor_session_resp()
 
 @app.post("/editor")
-def forms():
+def editor_forms():
     session=request.cookies.get("session")
 
-    if session and sessions[session]:
+    if not session: return new_editor_session_resp()
+    sess=sessions.get(session)
+
+    if sess==None: return new_editor_session_resp()
+
+    if sess:
         pass
     else:
         passinput=request.form["pass-input"]
-        if passinput==PASSWORD: return render_template("edit.html")
+        if passinput==PASSWORD:
+            sessions[session]=True
+            return render_template("edit.html")
         else: return render_template("edit_auth.html",error="Неверный пороль"), 401
+        
+
+def new_editor_session_resp():
+    new_session=token_urlsafe(256)
+    sessions[new_session]=False
+    
+    resp=make_response(render_template("edit_auth.html"))
+    resp.set_cookie("session",new_session,httponly=True)
+    return resp
 
 
 if __name__=="__main__":
@@ -115,4 +123,4 @@ if __name__=="__main__":
             "cu":0.5
         })
 
-    app.run(host=HOST,port=PORT,debug=True)
+    app.run(host=HOST,port=PORT)
