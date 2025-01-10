@@ -1,8 +1,11 @@
-from flask import Flask, render_template, redirect, request
+from flask import Flask, render_template, request, make_response
 from sqlite4 import SQLite4
+from secrets import token_urlsafe
 
 HOST="localhost"
 PORT=443
+
+PASSWORD="isufiubns3gw73gy3cpohowfyp89yal4ghohd;af'lsdfasdkma'sdmdsvsdvnsmd98487wy424t8"
 
 CHYM=[
     ("Хлориды","Cl⁻"),
@@ -33,6 +36,35 @@ def index():
 def data():
     info=database.select("info")
     return render_template("data.html",info=info,info_size=len(info),chym=CHYM,chym_range=range(len(CHYM)))
+
+sessions:dict[str,bool]={}
+
+@app.get("/editor")
+def editor():
+    session=request.cookies.get("session")
+
+    if session:
+        if sessions[session]: return render_template("edit.html")
+        return render_template("edit_auth.html")
+    
+    new_session=token_urlsafe(16)
+    sessions[new_session]=False
+    
+    resp=make_response(render_template("edit_auth.html"))
+    resp.set_cookie("session",new_session)
+    return resp
+
+@app.post("/editor")
+def forms():
+    session=request.cookies.get("session")
+
+    if session and sessions[session]:
+        pass
+    else:
+        passinput=request.form["pass-input"]
+        if passinput==PASSWORD: return render_template("edit.html")
+        else: return render_template("edit_auth.html",error="Неверный пороль"), 401
+
 
 if __name__=="__main__":
     database.connect()
