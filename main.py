@@ -27,6 +27,9 @@ CHYM=[
     ("Медь","Cu")
 ]
 
+keys:list[str]
+keys_count:int
+
 database=SQLite4("database.db")
 app=Flask(__name__)
 
@@ -35,7 +38,7 @@ def index():
     return render_template("index.html")
 @app.route("/data")
 def data():
-    info=database.select("info")
+    info=list(map(lambda x:x[1::],database.select("info")))
     return render_template("data.html",info=info,info_size=len(info),chym=CHYM,chym_range=range(len(CHYM)))
 
 sessions:dict[str,bool]={}
@@ -71,7 +74,23 @@ def editor_forms():
                     vals=key.split('-')
                     fill_to(ls,int(vals[1]),0,request.form.get(key))
             except ValueError:
-                return 
+                return "Incorrect form", 422
+            
+        size=len(ls)
+        curr_size=len(database.select("info"))
+
+        if size>curr_size:
+            for i in range(curr_size,size): database.insert("info",{"id":i})
+        elif size<curr_size:
+            for i in range(size,curr_size): database.delete("info","id=="+str(i))
+
+        for i in range(size):
+            mp={}
+            sub=ls[i]
+            for j in range(keys_count):
+                mp[keys[j]]=sub[j]
+            database.update("info",mp,"id=="+str(i))
+
         return editor_resp()
     else:
         passinput=request.form["pass-input"]
@@ -115,7 +134,7 @@ def fill_to(ls:list[list[str]],i:int,j:int,value):
     size_ls2=len(ls2)
 
     if j>=size_ls2:
-        for index in range(j-size_ls2+1): ls2.append("")
+        for index in range(j-size_ls2+1): ls2.append(None)
         size_ls2=j+1
     
     ls2[j]=value
@@ -130,57 +149,36 @@ def new_editor_session_resp():
     return resp
 
 def editor_resp():
-    info=database.select("info")
+    info=list(map(lambda x:x[1::],database.select("info")))
     return render_template("edit.html",info=info,info_size=len(info),info_range=range(len(info)),chym=CHYM,chym_size=len(CHYM),chym_range=range(len(CHYM)))
 
 
 if __name__=="__main__":
     database.connect()
-    database.create_table("info",["name","good","ph","petroleum","cl","br","f","so","b","na","mg","ca","k","sr","pb","zn","fe","mn","cu"])
+    database.create_table("info",[
+        "id INTEGER PRIMARY KEY",
+        "name TEXT",
+        "good INTEGER",
+        "ph REAL",
+        "petroleum REAL",
+        "cl REAL",
+        "br REAL",
+        "f REAL",
+        "so REAL",
+        "b REAL",
+        "na REAL",
+        "mg REAL",
+        "ca REAL",
+        "k REAL",
+        "sr REAL",
+        "pb REAL",
+        "zn REAL",
+        "fe REAL",
+        "mn REAL",
+        "cu REAL"
+    ])
 
-    #Default info
-    if len(database.select("info"))==0: 
-        database.insert("info",{
-            "name":"Вишера",
-            "good":10,
-            "ph":1,
-            "petroleum":0.5,
-            "cl":0.5,
-            "br":0.5,
-            "f":0.5,
-            "so":0.5,
-            "b":0.5,
-            "na":0.5,
-            "mg":0.5,
-            "ca":0.5,
-            "k":0.5,
-            "sr":0.5,
-            "pb":0.5,
-            "zn":0.5,
-            "fe":0.5,
-            "mn":0.5,
-            "cu":0.5
-        })
-        database.insert("info",{
-            "name":"Смолишена",
-            "good":10,
-            "ph":1,
-            "petroleum":0.5,
-            "cl":0.5,
-            "br":0.5,
-            "f":0.5,
-            "so":0.5,
-            "b":0.5,
-            "na":0.5,
-            "mg":0.5,
-            "ca":0.5,
-            "k":0.5,
-            "sr":0.5,
-            "pb":0.5,
-            "zn":0.5,
-            "fe":0.5,
-            "mn":0.5,
-            "cu":0.5
-        })
+    keys=keys=list(map(lambda x: x[1],database.connection.execute("PRAGMA table_info(info)").fetchall()[1::]))
+    keys_count=len(keys)
 
     app.run(host=HOST,port=PORT,debug=True)

@@ -11,6 +11,9 @@
 <body>
     <form method="post" action="">
         <table id="table_1">
+            <colgroup>
+                <col span="4">
+            </colgroup>
             <thead>
                 <tr>
                     <th colspan="4" class="caption">Общее</th>
@@ -24,12 +27,15 @@
             </thead>
             <tbody>{% for i in info_range %}
                 <tr>
-                    <th id="name-{{ i }}">{{ info[i][0] }}</th>
-                    {% for j in range(1,4) %}<td><input type="number" name="base-{{ i }}-{{ j }}" value="{{ info[i][j] }}"></td>{% endfor %}
+                    <th id="name-{{ i }}">{{ info[i][0] }}</th>{% for j in range(1,4) %}
+                    <td><input type="number" name="base-{{ i }}-{{ j }}" value="{{ info[i][j] }}"></td>{% endfor %}
                 </tr>{% endfor %}
             </tbody>
         </table>
         <table id="table_2">
+            <colgroup>
+                <col span="2">
+            </colgroup>
             <thead>
                 <tr>
                     <th class="caption" colspan="2">Химические элементы</th>
