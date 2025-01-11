@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, make_response
 from sqlite4 import SQLite4
 from secrets import token_urlsafe
+import re
 
 HOST="localhost"
 PORT=443
@@ -43,7 +44,7 @@ sessions:dict[str,bool]={}
 def editor():
     session=request.cookies.get("session")
 
-    if session and sessions.get(session): return render_template("edit.html")
+    if session and sessions.get(session): return editor_resp()
     return new_editor_session_resp()
 
 @app.post("/editor")
@@ -56,13 +57,68 @@ def editor_forms():
     if sess==None: return new_editor_session_resp()
 
     if sess:
-        pass
+        ls:list[list[str]]=[]
+
+        for key in request.form.keys():
+            try:
+                if re.fullmatch("base-[0-9]+-[0-9]+",key):
+                    vals=key.split('-')
+                    fill_to(ls,int(vals[1]),int(vals[2]),float(request.form.get(key)))
+                elif re.fullmatch("chym-[0-9]+-[0-9]+",key):
+                    vals=key.split('-')
+                    fill_to(ls,int(vals[1]),int(vals[2])+4,float(request.form.get(key)))
+                elif re.fullmatch("name-[0-9]+",key):
+                    vals=key.split('-')
+                    fill_to(ls,int(vals[1]),0,request.form.get(key))
+            except ValueError:
+                return 
+        return editor_resp()
     else:
         passinput=request.form["pass-input"]
         if passinput==PASSWORD:
             sessions[session]=True
-            return render_template("edit.html")
-        else: return render_template("edit_auth.html",error="Неверный пороль"), 401
+            return editor_resp()
+        else: return render_template("edit_auth.html",error="Неверный пороль")
+
+@app.route("/editor/js")
+def editor_js():
+    session=request.cookies.get("session")
+
+    if not session: return "Not accessed", 401
+    sess=sessions.get(session)
+
+    if sess:
+        resp=make_response(render_template("edit.js",chym_size=len(CHYM)))
+        resp.content_type="text/javascript; charset=utf-8"
+        return resp
+    else: return "Not accessed", 401
+
+@app.route("/editor/css")
+def editor_css():
+    session=request.cookies.get("session")
+
+    if not session: return "Not accessed", 401
+    sess=sessions.get(session)
+
+    if sess:
+        resp=make_response(render_template("edit.css"))
+        resp.content_type="text/css; charset=utf-8"
+        return resp
+    else: return "Not accessed", 401
+
+def fill_to(ls:list[list[str]],i:int,j:int,value):
+    size=len(ls)
+    if i >= size:
+        for index in range(i-size+1): ls.append([])
+        size=i+1
+    ls2=ls[i]
+    size_ls2=len(ls2)
+
+    if j>=size_ls2:
+        for index in range(j-size_ls2+1): ls2.append("")
+        size_ls2=j+1
+    
+    ls2[j]=value
         
 
 def new_editor_session_resp():
@@ -72,6 +128,10 @@ def new_editor_session_resp():
     resp=make_response(render_template("edit_auth.html"))
     resp.set_cookie("session",new_session,httponly=True)
     return resp
+
+def editor_resp():
+    info=database.select("info")
+    return render_template("edit.html",info=info,info_size=len(info),info_range=range(len(info)),chym=CHYM,chym_size=len(CHYM),chym_range=range(len(CHYM)))
 
 
 if __name__=="__main__":
@@ -123,4 +183,4 @@ if __name__=="__main__":
             "cu":0.5
         })
 
-    app.run(host=HOST,port=PORT)
+    app.run(host=HOST,port=PORT,debug=True)

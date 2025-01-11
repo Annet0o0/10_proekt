@@ -3,9 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/static/img/icon.png">
+    <link rel="icon" href="/static/img/icon.png">
+    <link rel="stylesheet" href="/editor/css">
     <title>Редактор</title>
 </head>
 <body>
+    <form method="post" action="">
+        <table id="table_1">
+            <thead>
+                <tr>
+                    <th colspan="4" class="caption">Общее</th>
+                </tr>
+                <tr>
+                    <th>Водоём</th>
+                    <th>Общая оценка</th>
+                    <th>Кислотность</th>
+                    <th>Содержание нефтепродуктов</th>
+                </tr>
+            </thead>
+            <tbody>{% for i in info_range %}
+                <tr>
+                    <th id="name-{{ i }}">{{ info[i][0] }}</th>
+                    {% for j in range(1,4) %}<td><input type="number" name="base-{{ i }}-{{ j }}" value="{{ info[i][j] }}"></td>{% endfor %}
+                </tr>{% endfor %}
+            </tbody>
+        </table>
+        <table id="table_2">
+            <thead>
+                <tr>
+                    <th class="caption" colspan="2">Химические элементы</th>
+                    <th class="caption" id="water-caption" colspan={{ info_size }}>Водоёмы</th>
+                </tr>
+                <tr>
+                    <th>Элемент/ион</th>
+                    <th>Химический символ</th>{% for i in info_range %}
+                    <th id="column-{{ i }}">{{ info[i][0] }}</th>{% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in chym_range %}<tr>
+                    <th>{{ chym[i][0] }}</th>
+                    <td>{{ chym[i][1] }}</td>{% for j in info_range %}
+                    <td index="{{ j }}"><input type="number" name="chym-{{ j }}-{{ i }}" value="{{ info[j][i+4] }}"></td>{% endfor %}
+                </tr>{% endfor %}
+            </tbody>
+        </table>
+        <ol id="name-list">{% for i in info_range %}
+            <li index="{{ i }}"><input type="text" name="name-{{ i }}" value="{{ info[i][0] }}"><input type="button" value="-"></li>{% endfor %}
+        </ol>
+        <input type="button" id="btn-add" value="+"><br/>
+        
+        <input type="submit" value="Сохранить">
+    </form>
     
+    <script>
+        var size={{ info_size }};
+    </script>
+    <script src="/editor/js"></script>
 </body>
 </html>
