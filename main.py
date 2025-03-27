@@ -181,4 +181,4 @@ if __name__=="__main__":
     keys=keys=list(map(lambda x: x[1],database.connection.execute("PRAGMA table_info(info)").fetchall()[1::]))
     keys_count=len(keys)
 
-    app.run(host=HOST,port=PORT,ssl_context='adhoc')
+    app.run(host=HOST,port=PORT,ssl_context='adhoc',debug=True)

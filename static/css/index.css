@@ -1,10 +1,17 @@
 .common_section {
     text-align: center;
-    padding: 80px 0;
 }
 
 .hide {
     display: none !important;
+}
+
+.title{
+    font-size: 20px;
+}
+
+.title-wraper {
+    margin-bottom: 20px;
 }
 
 /* _______________________ABOUT________________________________ */
@@ -12,7 +19,7 @@
 .about {
     background-color: #FFF;
     border-radius: 10px;
-    padding: 15px;
+    padding: 15px 15px 80px 15px;
     text-align: center;
 }
 
@@ -49,11 +56,6 @@
 }
 
 /* _____________________________________TABS_____________________________ */
-
-.tab__section {
-    background-color: #FFF;
-}
-
 .tabs__nav {
     margin-bottom: 30px;
 }
@@ -94,7 +96,6 @@
 .tabs_item img {
     width: 700px;
     margin-bottom: 30px;
-
 }
 
 .tabs_desc p {
@@ -103,6 +104,10 @@
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+}
+
+.tabs_item{
+    padding-bottom:30px;
 }
 
 

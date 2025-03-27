@@ -63,6 +63,8 @@ header::before {
     justify-content: center;
     background-position: center;
     background-size: cover;
+    background-color: rgb(240, 240, 240);
+    border-radius: 10px 10px 0 0;
 }
 
 /*______________________WELCOME___________________ */
