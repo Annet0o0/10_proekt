@@ -11,7 +11,7 @@
 }
 
 .title-wraper {
-    margin-bottom: 20px;
+    margin: 20px 0 20px 0;
 }
 
 /* _______________________ABOUT________________________________ */
@@ -33,8 +33,10 @@
 .about .card {
     width: 200px;
     border: 1px solid #DCEBF7;
-    border-radius: 5px;
-    padding: 35px 16px 20px;
+    background-color: rgb(253,253,253);
+    border-radius: 10px;
+    padding: 20px 16px 20px;
+    text-align: center;
     margin-top: 10px;
 }
 
@@ -50,9 +52,9 @@
 }
 
 .about .card h4 {
-    font-size: 20px;
-    line-height: 1.5;
-    letter-spacing: 6px;
+    font-size: 25px;
+    letter-spacing: 3px;
+    height: 100px;
 }
 
 /* _____________________________________TABS_____________________________ */
@@ -95,6 +97,7 @@
 
 .tabs_item img {
     width: 700px;
+    height: 438px;
     margin-bottom: 30px;
 }
 
